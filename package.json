@@ -1,0 +1,39 @@
+{
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.8.1"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/plugin-transform-runtime": "^7.19.6"
+  },
+  "scripts": {
+    "menu": "./node_modules/.bin/ntl -d --exclude menu menu-* pretest prepublish",
+    "menu-dev": "NODE_ENV=development yarn run menu",
+    "menu-test": "NODE_ENV=test yarn run menu",
+    "menu-prod": "NODE_ENV=production yarn run menu",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register src/test --recursive",
+    "eslint": "./node_modules/.bin/eslint --fix . --ignore-path .gitignore",
+    "build": "./node_modules/.bin/babel ./src --out-dir dist --ignore src/test",
+    "prepublish": "yarn run build"
+  },
+  "files": [
+    "dist/calc.js",
+    "dist/calc/divide.js",
+    "dist/calc/plus.js",
+    "dist/calc/sub.js",
+    "dist/calc/times.js"
+  ],
+  "name": "justabasiccalculator",
+  "version": "1.0.4",
+  "main": "./dist/calc.js",
+  "author": "Rian Barbosa <rianbbarbosa@outlook.com>",
+  "license": "MIT"
+}
